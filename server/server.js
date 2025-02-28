@@ -24,7 +24,7 @@ app.get('/weather', async (req, res) => {
         const params = new URLSearchParams({
             q: cityName,
             appid: process.env.OPENWEATHER_API_KEY,
-            units: 'metric', // Изменили на metric для градусов Цельсия
+            units: 'imperial', // ==>> F , if c then change to 'metric'
         })
 
         const url = `https://api.openweathermap.org/data/2.5/weather?${params}`
@@ -36,7 +36,7 @@ app.get('/weather', async (req, res) => {
             return res.status(data.cod).json({ error: data.message })
         }
 
-        // Форматируем ответ с нужными полями
+        // Fetching only 5 required details of weather
         const result = {
             city: data.name,
             temperature: data.main.temp,
@@ -56,8 +56,8 @@ app.get('/weather', async (req, res) => {
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
 
-//Was able to check through curl command : curl "http://localhost:3001/weather?cityName=Sunnyvale"
-//   http://localhost:3001/weather?cityName=Sunnyvale - weather of Sunnyvale city
+//Was able to check through curl command : curl "http://localhost:3001/weather?cityName=Sunnyvale" or change name of city 
+//   http://localhost:3001/weather?cityName=Sunnyvale - weather of Sunnyvale city or change the name of city 
 
 
 

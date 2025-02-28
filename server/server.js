@@ -21,8 +21,10 @@ app.get('/weather/:city', async (req, res) => {
     try {
       const response = await fetch(url)
       const data = await response.json()
-      res.json(data)
+      res.json(data.name)
+      console.log(data.name)
     } catch (error) {
       res.status(500).json({ error: error.message })
     }
   })
+  //http://localhost:3001/weather/Sunnyvale/ - weather of Sunnyvale city

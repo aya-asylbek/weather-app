@@ -8,25 +8,92 @@ dotenv.config()
 const app = express()
 
 app.use(cors())
+
+//To check what will show in browser
 app.get('/', (req, res) => res.send('Server is running!'))
 
-const PORT = process.env.PORT || 3001
-app.listen(PORT, () =>console.log(`Server started on port ${PORT}`))
 
-
-app.get('/weather/:city', async (req, res) => {
-    const city = req.params.city
-    console.log('city', city)
-    const apiKey = process.env.OPENWEATHER_API_KEY
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
-  
+// Route to get weather details through query params
+app.get('/weather', async (req, res) => {
     try {
-      const response = await fetch(url)
-      const data = await response.json()
-      res.json(data.name)
-      console.log(data.name)
+        const cityName = req.query.cityName
+        if (!cityName) {
+            return res.status(400).json({ error: 'City name is required' })
+        }
+
+        const params = new URLSearchParams({
+            q: cityName,
+            appid: process.env.OPENWEATHER_API_KEY,
+            units: 'metric', // Изменили на metric для градусов Цельсия
+        })
+
+        const url = `https://api.openweathermap.org/data/2.5/weather?${params}`
+        
+        const response = await fetch(url)
+        const data = await response.json()
+
+        if (data.cod !== 200) {
+            return res.status(data.cod).json({ error: data.message })
+        }
+
+        // Форматируем ответ с нужными полями
+        const result = {
+            city: data.name,
+            temperature: data.main.temp,
+            humidity: data.main.humidity,
+            windSpeed: data.wind.speed,
+            weather: data.weather[0].main
+        }
+
+        res.json(result)
+
     } catch (error) {
-      res.status(500).json({ error: error.message })
+        console.error('Error:', error)
+        res.status(500).json({ error: 'Internal server error' })
     }
-  })
-  //http://localhost:3001/weather/Sunnyvale/ - weather of Sunnyvale city
+})
+
+const PORT = process.env.PORT || 3001
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
+
+//Was able to check through curl command : curl "http://localhost:3001/weather?cityName=Sunnyvale"
+//   http://localhost:3001/weather?cityName=Sunnyvale - weather of Sunnyvale city
+
+
+
+
+
+//To fetch weather from API using OPENWEATHER_API_KEY which is in .env file and using req.params
+// app.get('/weather/:city', async (req, res) => {
+//   try {
+//       const city = req.params.city
+//       const apiKey = process.env.OPENWEATHER_API_KEY
+//       const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
+
+//       const response = await fetch(url)
+//       const data = await response.json()
+
+//       if (data.cod !== 200) {
+//           return res.status(data.cod).json({ error: data.message })
+//       }
+// //We need only 5 details from whole object of weather data in json format
+//       res.json({
+//           city: data.name,
+//           temperature: data.main.temp,
+//           humidity: data.main.humidity,
+//           wind: data.wind.speed,
+//           weather: data.weather[0].main
+//       })
+      
+//   } catch (error) {
+//       res.status(500).json({ error: error.message })
+//   }
+// })
+
+//const PORT = process.env.PORT || 3001
+//app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
+
+// Was able to check data with 5 details : city,temp,humidity,wind.speed : --->>> in browser http://localhost:3001/weather/Sunnyvale 
+//Curl command --->>> curl "http://localhost:3001/weather/Sunnyvale"
+
+

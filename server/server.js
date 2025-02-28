@@ -3,10 +3,10 @@ import cors from 'cors';
 import dotenv from 'dotenv'
 import fetch from 'node-fetch';
 
-
 dotenv.config()
-const app = express()
 
+const app = express()
+const PORT = process.env.PORT || 3001
 app.use(cors())
 
 //To check what will show in browser
@@ -53,9 +53,8 @@ app.get('/weather', async (req, res) => {
     }
 })
 
-const PORT = process.env.PORT || 3001
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
 
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
 //Was able to check through curl command : curl "http://localhost:3001/weather?cityName=Sunnyvale" or change name of city 
 //   http://localhost:3001/weather?cityName=Sunnyvale - weather of Sunnyvale city or change the name of city 
 

@@ -1,22 +1,21 @@
 import express from 'express'
-import cors from 'cors';
+import cors from 'cors'; // Cors to allow frontend to acess backend
 import dotenv from 'dotenv'
 import fetch from 'node-fetch';
 
 dotenv.config()
-
 const app = express()
-const PORT = process.env.PORT || 3001
+
 app.use(cors())
 
-//To check what will show in browser
+//Route to check server status in browser 
 app.get('/', (req, res) => res.send('Server is running!'))
 
 
-// Route to get weather details through query params
+// Route to get weather details through query params from OpenWeather API
 app.get('/weather', async (req, res) => {
     try {
-        const cityName = req.query.cityName
+        const cityName = req.query.cityName //get the city name from the query parameter
         if (!cityName) {
             return res.status(400).json({ error: 'City name is required' })
         }
@@ -53,10 +52,20 @@ app.get('/weather', async (req, res) => {
     }
 })
 
-
+const PORT = process.env.PORT || 3001
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
+
 //Was able to check through curl command : curl "http://localhost:3001/weather?cityName=Sunnyvale" or change name of city 
 //   http://localhost:3001/weather?cityName=Sunnyvale - weather of Sunnyvale city or change the name of city 
+//in Postman get command : http://localhost:3001/weather?cityName=Sunnyvale - weather of Sunnyvale or change city 
+
+
+
+
+
+
+
+
 
 
 

@@ -6,7 +6,7 @@ function App() {
     const [weather, setWeather] = useState(null);
     const handleSearch = async (city) => {
         try {
-            const response = await fetch(`http://localhost:3001/weather?city=${city}`);
+            const response = await fetch(`http://localhost:3001/weather?cityName=${city}`);
             const data = await response.json();
             setWeather(data);
         } catch (error) {
@@ -15,7 +15,7 @@ function App() {
     };
     return (
         <div>
-            <h1>Weather App</h1>
+            <h2>Weather App</h2>
             <WeatherForm onSubmit={handleSearch} />
             {weather && <Weather data={weather} />}
         </div>

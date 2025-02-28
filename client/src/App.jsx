@@ -2,6 +2,8 @@ import { useState } from "react";
 import WeatherForm from "./WeatherForm";
 import Weather from "./Weather";
 
+
+
 function App() {
     const [weather, setWeather] = useState(null);
     const handleSearch = async (city) => {

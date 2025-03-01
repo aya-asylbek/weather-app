@@ -1,43 +1,95 @@
 
-/* #root {
-  max-width: 1280px;
+body {
+  background-color: rgb(246, 216, 246);
+}.app-container {
+  max-width: 600px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 20px;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.error-message {
+  color: #dc3545;
+  margin: 10px 0;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.weather-info {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.weather-info img {
+  width: 100px;
+  height: 100px;
+  margin-top: 10px;
+}
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 30px;
+  text-align: center;
 }
 
-.card {
-  padding: 2em;
+.weather-form {
+  display: flex;
+  flex-direction: center;
+  gap: 10px;
+  max-width: 400px;
+  width: 100%;
+  margin: 20px auto;
 }
 
-.read-the-docs {
-  color: #888;
-} */
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 300px;
+}
+
+button {
+  padding: 10px 20px;
+  background: #fb93e8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 500px;
+}
+
+.loading {
+  color: #666;
+  margin: 20px 0;
+}
+
+.error-message {
+  color: #dc3545;
+  margin: 20px 0;
+  padding: 10px;
+  border: 1px solid #dc3545;
+  border-radius: 4px;
+}
+
+.weather-info {
+  background: #041e37;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  max-width: 400px;
+  width: 100%;
+  margin: 20px auto;
+}
+
+h2 {
+  color: #2c3e50;
+   margin-bottom: 20px; */
+}
+ h1{
+  text-align: center;
+ }

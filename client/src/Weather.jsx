@@ -4,10 +4,10 @@ function Weather({ data }) {
   return (
       <div>
           <h3>Weather in {data.city}</h3>
-          <p>Temperature: {data.temperature}°F</p>
-          <p>Humidity: {data.humidity}%</p>
-          <p>Wind Speed: {data.windSpeed} m/s</p>
-          <p>Condition: {data.weather}</p>
+          <p> 🌡️ Temperature: {data.temperature}°F</p>
+          <p> 💧 Humidity: {data.humidity}%</p>
+          <p> 💨 Wind Speed: {data.windSpeed} m/s</p>
+          <p> 🌦️ Condition: {data.weather}</p>
       </div>
   );
 }

@@ -92,4 +92,36 @@ h2 {
 }
  h1{
   text-align: center;
- }
+ } */
+
+ /* Responsive Design */
+
+/* For smaller screens (e.g., mobile) */
+@media (max-width: 768px) {
+  .weather-card {
+      padding: 15px;
+      width: 90%;
+  }
+
+  .weather-icon img {
+      width: 60px;
+      height: 60px;
+  }
+
+  .weather-details p {
+      font-size: 0.9rem;
+  }
+
+  h1 {
+      font-size: 1.5rem;
+  }
+
+  .weather-form input {
+      width: 100%;
+      margin-bottom: 10px;
+  }
+
+  .weather-form button {
+      width: 100%;
+  }
+}

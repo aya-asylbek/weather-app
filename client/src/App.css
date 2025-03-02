@@ -136,7 +136,6 @@ h1 {
   }
 
   .weather-form button {
-    width: 100%;
-    flex-grow: 1.2; 
+    width: 100%; 
   }
 } 

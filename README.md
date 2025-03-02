@@ -1,4 +1,5 @@
-<img width="507" alt="home-page" src="https://github.com/user-attachments/assets/9c16fe69-7594-42f7-bb2b-42c8c1911cc3" />
+WEATHER APP
+
 This is a simple weather application that allows users to search for weather conditions by city. It fetches weather data from the OpenWeather API through a backend server.
 
 Features

@@ -1,111 +1,118 @@
-WEATHER APP
+# Weather App
 
-This is a simple weather application that allows users to search for weather conditions by city. It fetches weather data from the OpenWeather API through a backend server.
+A modern weather application that allows users to search for real-time weather conditions by city name. The application fetches data from the OpenWeather API through a secure backend server.
 
-Features
+## Features
 
-Search weather by city name
+- Search weather conditions by city name
+- Display current temperature, humidity, wind speed, and weather conditions
+- Responsive and user-friendly interface
+- Error handling for invalid inputs
+- Real-time weather data updates
 
-Display temperature, humidity, wind speed, and weather condition
+## Tech Stack
 
-Backend built with Express.js
+### Frontend
+- React.js
+- Vite (Build tool)
+- Modern UI/UX design
 
-Frontend built with React
+### Backend
+- Node.js
+- Express.js
+- OpenWeather API integration
 
-Technologies Used
+## Installation
 
-Frontend: React, Vite
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn package manager
+- OpenWeather API key
 
-Backend: Node.js, Express.js
+### Getting Started
 
-API: OpenWeather API
-
-Installation
-
-Prerequisites
-
-Ensure you have the following installed:
-
-Node.js
-
-npm or yarn
-
-Clone the Repository
-
+1. Clone the repository
+```bash
 git clone https://github.com/aya-asylbek/weather-app.git
 cd weather-app
+```
 
-Backend Setup
-
-Navigate to the backend folder:
-
+2. Backend Setup
+```bash
+# Navigate to server directory
 cd server
 
-Install dependencies:
-
+# Install dependencies
 npm install
 
-Create a .env file in the server folder and add your OpenWeather API key:
+# Create .env file and add your OpenWeather API key
+echo "OPENWEATHER_API_KEY=your_api_key_here" > .env
 
-OPENWEATHER_API_KEY=your_api_key_here
-
-Start the backend server:
-
+# Start the server
 npm start
+```
 
-Frontend Setup
-
-Navigate to the frontend folder:
-
+3. Frontend Setup
+```bash
+# Navigate to client directory
 cd client
 
-Install dependencies:
-
+# Install dependencies
 npm install
 
-Start the frontend server:
-
+# Start the development server
 npm run dev
+```
 
-Usage
+## Usage
 
-Open the frontend in your browser (http://localhost:5173).
+1. Access the application at `http://localhost:5173`
+2. Enter a city name in the search bar
+3. View detailed weather information including:
+   - Temperature
+   - Humidity
+   - Wind speed
+   - Weather conditions
 
- Home page looks like this : 
+## API Documentation
 
+### Weather Endpoint
 
-<img width="507" alt="home-page" src="https://github.com/user-attachments/assets/790f1c62-d9af-44ac-8728-4c5de81e474e" />
-
-Enter a city name and click the search button.
-View the weather details displayed on the screen.
-
-(as an example in below image I searched for Madrid city!)
-
- <img width="501" alt="Madrid weather ,icon and details" src="https://github.com/user-attachments/assets/f7af8df7-93cb-40fa-b4ec-dd2be85527e2" />
-
-(as an example in below image I searched for Barcelona city!)
-
-<img width="501" alt="another examle " src="https://github.com/user-attachments/assets/2a454c0b-523a-4abe-b4a9-81ee27476780" />
-
-If you will not enter city in search bar ,then error will popped out "Please enter a city name"
-
-<img width="507" alt="Name is not filled ,error Please enter name" src="https://github.com/user-attachments/assets/55be1bab-8015-4189-b5a3-9131f078e208" />
-
-API Endpoint
-
-The backend server provides the following endpoint:
-
+```
 GET /weather?cityName={city}
+```
 
-Example:
+**Parameters:**
+- `cityName` (required): Name of the city to fetch weather data for
 
+**Example Request:**
+```
 http://localhost:3001/weather?cityName=Sunnyvale
+```
 
-Author
+## Screenshots
 
-aya-asylbek
+### Home Page
+![Home Page](./client/home-page.png)
 
-License
+### Weather Details - Madrid Example
+![Madrid Weather](./client/Madrid%20weather%20%2Cicon%20and%20details.png)
 
-This project is licensed under the MIT License.
+### Weather Details - Barcelona Example
+![Barcelona Weather](./client/another%20examle%20.png)
+
+### Error Handling
+![Error Message](./client/Name%20is%20not%20filled%20%2Cerror%20Please%20enter%20name%22.png)
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## Author
+
+[aya-asylbek](https://github.com/aya-asylbek)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
